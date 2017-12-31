@@ -13,11 +13,13 @@ public:
   void music_pause();
   void music_stop();
   void initialize();
+  void get_music();
   void load_music();
   void quit();
 
 private:
   Mix_Music *music;
+  char music_path[256];
 
 };
 

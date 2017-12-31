@@ -9,6 +9,9 @@ Player::Player()
 {
   // Points to track to be played
   Mix_Music *music = NULL;
+
+  // Holds path to music entered by user
+  char music_path[256];
 }
 
 // Plays selected song
@@ -40,10 +43,16 @@ void Player::initialize()
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 }
 
+// Gets path to music entered by user
+void Player::get_music()
+{
+  std::cin.getline(music_path, 256, '\n');
+}
+
 // Loads the current track to be played
 void Player::load_music()
 {
-  music = Mix_LoadMUS("/home/lauren/Music/Guilty_Kiss_-_Shadow_gate_to_love.oga");
+  music = Mix_LoadMUS(music_path);
   Mix_PlayMusic(music, 1);
 }
 
