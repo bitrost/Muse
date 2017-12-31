@@ -11,7 +11,7 @@ public:
 
 private:
   // Signal handlers:
-  void on_button_pressed(const Glib::ustring& data);
+  void on_button_pressed(const Glib::ustring& button_name);
 
   // Child widgets
   Gtk::Grid m_grid;

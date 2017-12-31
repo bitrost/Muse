@@ -41,7 +41,7 @@ Interface::~Interface()
 {
 }
 
-void Interface::on_button_pressed(const Glib::ustring& data)
+void Interface::on_button_pressed(const Glib::ustring& button_name)
 {
-  std::cout << data << " was pressed" << std::endl;
+  std::cout << button_name << " was pressed" << std::endl;
 }
