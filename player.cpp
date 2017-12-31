@@ -32,7 +32,7 @@ void Player::music_stop()
   Mix_HaltMusic();
 }
 
-// Possibly change to bool (& change similar functions)
+// Initializes SDL
 void Player::initialize()
 {
   if(SDL_Init(SDL_INIT_AUDIO) == -1)
