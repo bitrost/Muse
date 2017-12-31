@@ -1,6 +1,6 @@
 # Muse Music Player
 
-A simple music player.
+A simple music player. In progress
 
 ## Manual Compilation
 
