@@ -1,32 +1,32 @@
 //#include <gtkmm.h>
+#include <iostream>
+#include <gtkmm/application.h>
+
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_mixer.h"
-#include <iostream>
+#include "interface.h"
 
 // To compile:
-// g++ main.cpp -o Muse `pkg-config --cflags --libs gtkmm-3.0`
-// g++ main.cpp -lSDL2 -lSDL2_mixer
-
-// MP3 file
+// g++ main.cpp -o Muse -lSDL2 -lSDL2_mixer `pkg-config --cflags --libs gtkmm-3.0`
 
 // Points to track to be played
 Mix_Music *music = NULL;
 
 // Playback controls
 // Plays selected song
-void play()
+void music_play()
 {
   Mix_ResumeMusic();
 }
 
 // Pauses currently playing song
-void pause()
+void music_pause()
 {
   Mix_PauseMusic();
 }
 
 // Stops currently playing song
-void stop()
+void music_stop()
 {
   Mix_HaltMusic();
 }
@@ -67,8 +67,10 @@ int main(int argc, char **argv)
   load_music();
   Mix_PlayMusic(music, 1);
 
-  SDL_Delay(100000000);
+  auto app = Gtk::Application::create(argc, argv);
 
+  Interface window;
 
-  return 0;
+  // Shows the window and returns when it is closed.
+  return app->run(window);
 }
