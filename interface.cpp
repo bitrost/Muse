@@ -1,5 +1,6 @@
-#include "interface.h"
 #include <iostream>
+
+#include "interface.h"
 
 Interface::Interface()
 : button_play("Play"),
@@ -13,6 +14,8 @@ Interface::Interface()
 
   add(m_grid);
 
+  m_grid.show();
+
   button_play.show();
   button_pause.show();
   button_stop.show();
@@ -20,13 +23,25 @@ Interface::Interface()
   m_grid.add(button_play);
   m_grid.add(button_pause);
   m_grid.add(button_stop);
+
+  button_play.signal_clicked().connect(
+    sigc::bind<Glib::ustring>(sigc::mem_fun(*this,
+      &Interface::on_button_pressed), "Play"));
+
+  button_pause.signal_clicked().connect(
+    sigc::bind<Glib::ustring>(sigc::mem_fun(*this,
+      &Interface::on_button_pressed), "Pause"));
+
+  button_stop.signal_clicked().connect(
+    sigc::bind<Glib::ustring>(sigc::mem_fun(*this,
+      &Interface::on_button_pressed), "Stop"));
 }
 
 Interface::~Interface()
 {
 }
 
-void Interface::button_play_pressed()
+void Interface::on_button_pressed(const Glib::ustring& data)
 {
-  std::cout << "Play pressed" << std::endl;
+  std::cout << data << " was pressed" << std::endl;
 }
