@@ -12,9 +12,8 @@ int main(int argc, char **argv)
   Player player;
 
   player.initialize();
-  player.get_music();
-  player.load_music();
-  player.output_music();
+  //player.load_music("/home/lauren/Music/TESTAMENT.oga");
+  //player.output_music();
 
   // Shows the window and returns when it is closed.
   return app->run(window);

@@ -1,6 +1,10 @@
 #include <iostream>
 
 #include "interface.h"
+#include "player.h"
+
+// Holds path to file selected in file chooser
+std::string filename = "";
 
 Interface::Interface()
 : button_play("Play"),
@@ -57,7 +61,22 @@ Interface::~Interface()
 // Event occurring when a playback control button is pressed
 void Interface::on_button_pressed(const Glib::ustring& button_name)
 {
-  std::cout << button_name << " was pressed" << std::endl;
+  if(button_name == "Play")
+  {
+    std::cout << button_name << " was pressed" << std::endl;
+  }
+  else if(button_name == "Pause")
+  {
+    std::cout << button_name << " was pressed" << std::endl;
+  }
+  else if(button_name == "Stop")
+  {
+    std::cout << button_name << " was pressed" << std::endl;
+  }
+  else
+  {
+    std::cout << "Error: This text shouldn't appear" << std::endl;
+  }
 }
 
 void Interface::on_button_file_clicked()
@@ -80,7 +99,9 @@ void Interface::on_button_file_clicked()
     {
       std::cout << "Open clicked." << std::endl;
 
-      std::string filename = dialog.get_filename();
+      // Get file path and convert to C-style string
+      filename = dialog.get_filename();
+
       std::cout << "File selected: " << filename << std::endl;
       break;
     }

@@ -10,7 +10,7 @@ Player::Player()
   // Points to track to be played
   Mix_Music *music = NULL;
 
-  // Holds path to music entered by user
+  // Holds path to music track
   char music_path[256];
 }
 
@@ -44,14 +44,17 @@ void Player::initialize()
 }
 
 // Gets path to music entered by user
-void Player::get_music()
+/*void Player::get_music()
 {
   std::cin.getline(music_path, 256, '\n');
-}
+}*/
 
 // Loads the current track to be played
-void Player::load_music()
+void Player::load_music(std::string filename)
 {
+  // Converts path in std::string to C-style string
+  strcpy(music_path, filename.c_str());
+
   music = Mix_LoadMUS(music_path);
 }
 

@@ -13,8 +13,7 @@ public:
   void music_pause();
   void music_stop();
   void initialize();
-  void get_music();
-  void load_music();
+  void load_music(std::string filename);
   void output_music();
   void quit();
 

@@ -10,6 +10,8 @@ public:
   virtual ~Interface();
 
 private:
+  std::string filename;
+
   // Signal handlers for playback controls
   void on_button_pressed(const Glib::ustring& button_name);
 
