@@ -2,6 +2,8 @@
 
 A simple music player. In progress
 
+Playback is compatible with WAVE, MOD, MIDI, OGG, MP3, and FLAC
+
 ## Manual Compilation
 
 g++ -c main.cpp -o Build/Main.o -lSDL2 -lSDL2_mixer `pkg-config --cflags --libs gtkmm-3.0`
