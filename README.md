@@ -20,6 +20,7 @@ To execute:
 
 ## To Do
 
+- Change play to both play when loaded and resume when paused
 - Connect buttons to functionality
 - Finding/loading music while program running
 

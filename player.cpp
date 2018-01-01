@@ -43,12 +43,6 @@ void Player::initialize()
   Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 }
 
-// Gets path to music entered by user
-/*void Player::get_music()
-{
-  std::cin.getline(music_path, 256, '\n');
-}*/
-
 // Loads the current track to be played
 void Player::load_music(std::string filename)
 {

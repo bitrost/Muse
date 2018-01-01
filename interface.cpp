@@ -6,6 +6,9 @@
 // Holds path to file selected in file chooser
 std::string filename = "";
 
+// Create Player object
+Player player;
+
 Interface::Interface()
 : button_play("Play"),
   button_pause("Pause"),
@@ -52,6 +55,9 @@ Interface::Interface()
   // Set click events for file chooser
   m_button_file.signal_clicked().connect(sigc::mem_fun(*this,
     &Interface::on_button_file_clicked));
+
+    // Initialize music player
+    player.initialize();
 }
 
 Interface::~Interface()
@@ -63,10 +69,13 @@ void Interface::on_button_pressed(const Glib::ustring& button_name)
 {
   if(button_name == "Play")
   {
+    player.load_music(filename);
+    player.output_music();
     std::cout << button_name << " was pressed" << std::endl;
   }
   else if(button_name == "Pause")
   {
+    player.music_pause();
     std::cout << button_name << " was pressed" << std::endl;
   }
   else if(button_name == "Stop")
