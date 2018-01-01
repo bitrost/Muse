@@ -53,6 +53,10 @@ void Player::get_music()
 void Player::load_music()
 {
   music = Mix_LoadMUS(music_path);
+}
+
+void Player::output_music()
+{
   Mix_PlayMusic(music, 1);
 }
 

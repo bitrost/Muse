@@ -15,6 +15,7 @@ public:
   void initialize();
   void get_music();
   void load_music();
+  void output_music();
   void quit();
 
 private:
