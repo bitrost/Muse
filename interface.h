@@ -20,7 +20,8 @@ private:
 
   // Child widgets
   Gtk::Grid m_grid;
-  Gtk::Button button_play, button_pause, button_stop, button_load;
+
+  Gtk::Button button_play, button_pause, button_stop;
   Gtk::Button m_button_file;
 };
 

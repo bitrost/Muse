@@ -52,6 +52,7 @@ void Player::load_music(std::string filename)
   music = Mix_LoadMUS(music_path);
 }
 
+// Plays currently selected music file
 void Player::output_music()
 {
   Mix_PlayMusic(music, 1);

@@ -13,7 +13,6 @@ Interface::Interface()
 : button_play("Play"),
   button_pause("Pause"),
   button_stop("Stop"),
-  button_load("Load"),
   m_button_file("Choose File")
 {
   // Window setup
@@ -30,12 +29,10 @@ Interface::Interface()
   button_play.show();
   button_pause.show();
   button_stop.show();
-  button_load.show();
 
   m_grid.add(button_play);
   m_grid.add(button_pause);
   m_grid.add(button_stop);
-  m_grid.add(button_load);
 
   // Configure and add file chooser button
   m_button_file.show();
@@ -55,16 +52,15 @@ Interface::Interface()
     sigc::bind<Glib::ustring>(sigc::mem_fun(*this,
       &Interface::on_button_pressed), "Stop"));
 
-  button_load.signal_clicked().connect(
-    sigc::bind<Glib::ustring>(sigc::mem_fun(*this,
-      &Interface::on_button_pressed), "Load"));
-
   // Set click events for file chooser
   m_button_file.signal_clicked().connect(sigc::mem_fun(*this,
     &Interface::on_button_file_clicked));
 
-    // Initialize music player
-    player.initialize();
+  // Show all window components
+  // show_all_children();
+
+  // Initialize music player
+  player.initialize();
 }
 
 Interface::~Interface()
@@ -87,12 +83,6 @@ void Interface::on_button_pressed(const Glib::ustring& button_name)
   else if(button_name == "Stop")
   {
     player.music_stop();
-    std::cout << button_name << " was pressed" << std::endl;
-  }
-  else if(button_name == "Load")
-  {
-    player.load_music(filename);
-    player.output_music();
     std::cout << button_name << " was pressed" << std::endl;
   }
   else
@@ -121,8 +111,12 @@ void Interface::on_button_file_clicked()
     {
       std::cout << "Open clicked." << std::endl;
 
-      // Get file path and convert to C-style string
+      // Get path to file
       filename = dialog.get_filename();
+
+      // Load file
+      player.load_music(filename);
+      player.output_music();
 
       std::cout << "File selected: " << filename << std::endl;
       break;
