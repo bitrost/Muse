@@ -1,6 +1,6 @@
 # Muse Music Player
 
-A simple music player. In progress
+A simple music player
 
 Playback is compatible with WAVE, MOD, MIDI, OGG, MP3, and FLAC
 
@@ -19,13 +19,3 @@ g++ Main.o Interface.o Player.o -o Muse -lSDL2 -lSDL2_mixer `pkg-config --cflags
 To execute:
 
 ./Muse
-
-## To Do
-
-- Change play to both play when loaded and resume when paused
-- Connect buttons to functionality
-- Finding/loading music while program running
-
-
-## Extras
-- Album art
